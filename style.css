@@ -65,7 +65,7 @@ header p {
 }
 
 /* Keep the timeline cards in one row so desktop screens can scroll sideways. */
-section {
+section.timeline-section {
 	display: flex;
 	flex-wrap: nowrap;
 	justify-content: flex-start;
@@ -76,7 +76,7 @@ section {
 	padding: 64px 24px;
 }
 
-section > div {
+section.timeline-section > div {
 	display: flex;
 	flex: 0 0 280px;
 	flex-direction: column;
@@ -99,43 +99,43 @@ section > div {
 	transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
-section > div:nth-child(1) {
+section.timeline-section > div:nth-child(1) {
 	background-image: url("img/1.jpg");
 }
 
-section > div:nth-child(2) {
+section.timeline-section > div:nth-child(2) {
 	background-image: url("img/2.jpg");
 }
 
-section > div:nth-child(3) {
+section.timeline-section > div:nth-child(3) {
 	background-image: url("img/3.jpg");
 }
 
-section > div:nth-child(4) {
+section.timeline-section > div:nth-child(4) {
 	background-image: url("img/4.jpg");
 }
 
-section > div:nth-child(5) {
+section.timeline-section > div:nth-child(5) {
 	background-image: url("img/5.jpg");
 }
 
-section > div:nth-child(6) {
+section.timeline-section > div:nth-child(6) {
 	background-image: url("img/6.jpg");
 }
 
-section > div:nth-child(7) {
+section.timeline-section > div:nth-child(7) {
 	background-image: url("img/7.jpg");
 }
 
-section > div:nth-child(8) {
+section.timeline-section > div:nth-child(8) {
 	background-image: url("img/8.jpg");
 }
 
-section > div:nth-child(9) {
+section.timeline-section > div:nth-child(9) {
 	background-image: url("img/9.jpg");
 }
 
-section > div:hover {
+section.timeline-section > div:hover {
 	transform: translateY(-8px);
 	background-color: #ffffff;
 	background-image: none;
@@ -143,14 +143,14 @@ section > div:hover {
 	box-shadow: 0 18px 28px rgba(0, 40, 92, 0.22), 0 8px 12px rgba(0, 40, 92, 0.12);
 }
 
-section h2 {
+section.timeline-section h2 {
 	margin: 0 0 12px;
 	color: #ffffff;
 	font-size: 2rem;
 	text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
 }
 
-section h3 {
+section.timeline-section h3 {
 	margin: 0 0 14px;
 	color: #ffffff;
 	font-size: 1.2rem;
@@ -158,7 +158,7 @@ section h3 {
 	text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
 }
 
-section p {
+section.timeline-section p {
 	display: none;
 	margin: 0;
 	color: #42566f;
@@ -166,13 +166,91 @@ section p {
 	line-height: 1.55;
 }
 
-section > div:hover h2,
-section > div:hover h3 {
+section.timeline-section > div:hover h2,
+section.timeline-section > div:hover h3 {
 	display: none;
 }
 
-section > div:hover p {
+section.timeline-section > div:hover p {
 	display: block;
+}
+
+.bootstrap-section {
+	padding-top: 32px;
+	padding-bottom: 32px;
+}
+
+.bootstrap-section .col-12 {
+	padding: 24px;
+	border: 1px solid #b7d8e8;
+	border-radius: 8px;
+	background-color: #ffffff;
+}
+
+.bootstrap-section h2 {
+	margin-top: 0;
+	color: #00285c;
+}
+
+.bootstrap-section p {
+	margin-bottom: 0;
+	color: #42566f;
+	line-height: 1.55;
+}
+
+.subscription-section {
+	padding-top: 32px;
+	padding-bottom: 48px;
+}
+
+.subscription-content {
+	max-width: 680px;
+	margin: 0 auto;
+	padding: 32px;
+	border: 1px solid #b7d8e8;
+	border-radius: 8px;
+	background-color: #ffffff;
+}
+
+.subscription-content h2 {
+	margin-top: 0;
+	color: #00285c;
+}
+
+.subscription-content p {
+	color: #42566f;
+}
+
+.accordion-section {
+	padding-bottom: 48px;
+}
+
+.accordion-section > h2 {
+	margin-bottom: 20px;
+	color: #00285c;
+}
+
+.site-footer {
+	padding: 32px 24px;
+	background-color: #00285c;
+	color: #ffffff;
+	text-align: center;
+}
+
+.site-footer nav {
+	display: flex;
+	justify-content: center;
+	gap: 24px;
+	flex-wrap: wrap;
+	margin-bottom: 16px;
+}
+
+.site-footer a {
+	color: #d7f5ff;
+}
+
+.site-footer p {
+	margin: 0;
 }
 
 body > p {
@@ -183,16 +261,11 @@ body > p {
 }
 
 @media (max-width: 560px) {
-	section {
-	flex-direction: column;
-	align-items: center;
-	overflow-x: visible;
-		gap: 18px;
+	section.timeline-section {
 		padding: 40px 18px;
 	}
 
-	section > div {
-		flex-basis: auto;
+	section.timeline-section > div {
 		width: 100%;
 		max-width: 360px;
 	}

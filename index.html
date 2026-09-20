@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Intel: Sustainability Through the Ages</title>
+  <!-- Bootstrap RTL provides right-to-left text flow and responsive layout tools. -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -28,7 +30,7 @@
   </header>
 
   <!-- Timeline Cards Section -->
-  <section>
+  <section class="timeline-section">
 
     <!-- Card 1: 1968 -->
     <div>
@@ -138,6 +140,125 @@
       </p>
     </div>
   </section>
+
   <p>Scroll to view timeline | Hover over cards to learn more!</p>
+
+  <!-- New responsive three-column section using Bootstrap's grid. -->
+  <section class="bootstrap-section container">
+    <div class="row g-4">
+      <div class="col-12 col-md-4">
+        <h2>Climate Action</h2>
+        <p>Learn how Intel is reducing emissions across its operations.</p>
+      </div>
+
+      <div class="col-12 col-md-4">
+        <h2>Water Stewardship</h2>
+        <p>Explore efforts to conserve and restore water resources.</p>
+      </div>
+
+      <div class="col-12 col-md-4">
+        <h2>Waste Reduction</h2>
+        <p>See how Intel is working toward a more circular manufacturing process.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter subscription form. -->
+  <section class="subscription-section container" aria-labelledby="subscription-title">
+    <div class="subscription-content">
+      <h2 id="subscription-title">Subscribe to Intel's Sustainability Newsletter</h2>
+      <p id="subscription-description">Receive updates about Intel's sustainability goals and progress.</p>
+      <form action="#" method="post" aria-describedby="subscription-description">
+        <div class="mb-3">
+          <label class="form-label" for="subscriber-email">Email address</label>
+          <input class="form-control" type="email" id="subscriber-email" name="email" autocomplete="email" required />
+        </div>
+        <button class="btn btn-primary" type="submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Bootstrap accordion for expandable sustainability details. -->
+  <section class="accordion-section container" aria-labelledby="accordion-title">
+    <h2 id="accordion-title">Sustainability Commitments</h2>
+    <div class="accordion" id="sustainabilityAccordion">
+      <div class="accordion-item">
+        <h3 class="accordion-header" id="heading-climate">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-climate" aria-expanded="true" aria-controls="collapse-climate">
+            Climate action
+          </button>
+        </h3>
+        <div id="collapse-climate" class="accordion-collapse collapse show" aria-labelledby="heading-climate" data-bs-parent="#sustainabilityAccordion">
+          <div class="accordion-body">
+            Intel is working to reduce greenhouse gas emissions and reach net-zero Scope 1 and 2 emissions by 2040.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h3 class="accordion-header" id="heading-water">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-water" aria-expanded="false" aria-controls="collapse-water">
+            Water stewardship
+          </button>
+        </h3>
+        <div id="collapse-water" class="accordion-collapse collapse" aria-labelledby="heading-water" data-bs-parent="#sustainabilityAccordion">
+          <div class="accordion-body">
+            Intel invests in water conservation, reuse, and restoration projects across its global operations.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h3 class="accordion-header" id="heading-waste">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-waste" aria-expanded="false" aria-controls="collapse-waste">
+            Waste reduction
+          </button>
+        </h3>
+        <div id="collapse-waste" class="accordion-collapse collapse" aria-labelledby="heading-waste" data-bs-parent="#sustainabilityAccordion">
+          <div class="accordion-body">
+            Intel is reducing manufacturing waste and improving material reuse to support a more circular process.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer navigation and copyright information. -->
+  <footer class="site-footer">
+    <div class="container">
+      <nav aria-label="Footer navigation">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="mailto:contact@example.com">Contact</a>
+      </nav>
+      <p>&copy; 2024 Intel Corporation. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap's bundle enables the accordion's interactive behavior. -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Update the page direction whenever the document language changes.
+    (() => {
+      const rtlLanguages = ["ar", "dv", "fa", "he", "ku", "ps", "ur", "yi"];
+      const documentElement = document.documentElement;
+
+      function updateDirection() {
+        const language = (documentElement.getAttribute("lang") || "en").toLowerCase().split("-")[0];
+        const translatedDirection = document.body.classList.contains("translated-rtl")
+          ? "rtl"
+          : document.body.classList.contains("translated-ltr")
+            ? "ltr"
+            : null;
+        documentElement.dir = translatedDirection || (rtlLanguages.includes(language) ? "rtl" : "ltr");
+      }
+
+      updateDirection();
+
+      const languageObserver = new MutationObserver(updateDirection);
+      languageObserver.observe(documentElement, { attributes: true, attributeFilter: ["lang"] });
+      languageObserver.observe(document.body, { attributes: true, attributeFilter: ["class"] });
+    })();
+  </script>
 </body>
 </html>
